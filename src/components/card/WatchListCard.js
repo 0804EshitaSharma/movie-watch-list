@@ -8,7 +8,6 @@ function WatchListCard({ movie }) {
 	const currentUser = useSelector((state) => state.user.user);
 	const dispatch = useDispatch();
 	function removeFromList() {
-		console.error(movie);
 		if (currentUser) {
 			dispatch(
 				removeMovieFromUserWatchListAsync({ user: currentUser, movie: movie })

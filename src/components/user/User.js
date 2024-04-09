@@ -16,7 +16,7 @@ function User() {
 	function handleSubmit($event) {
 		$event.preventDefault();
 		dispatch(loginUserAsync(newUser));
-		navigate("/home");
+		navigate("home");
 	}
 	function handleChange($event) {
 		setNewUser({ email: $event.target.value, isLoggedIn: true, watchList: [] });

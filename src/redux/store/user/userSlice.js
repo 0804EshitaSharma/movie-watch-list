@@ -76,34 +76,20 @@ export const userSlice = createSlice({
 			isLoggedIn: false,
 		},
 	},
-	reducers: {
-		// loggedInUser: (state, action) => {
-		// 	state.user = action.payload;
-		// },
-		// loggedOut: (state, action) => {
-		// 	state.user = null;
-		// },
-	},
+	reducers: {},
 	extraReducers: (builder) => {
 		builder.addCase(loginUserAsync.fulfilled, (state, action) => {
-			console.log(action.payload);
 			state.user = action.payload;
 		});
 		builder.addCase(logoutUserAsync.fulfilled, (state, action) => {
 			state.user.isLoggedIn = !action.payload.isLoggedIn;
 		});
 		builder.addCase(addMovieToUserWatchListAsync.fulfilled, (state, action) => {
-			// console.error(action.payload);
-
-			// state.user.watchList = action.payload.watchList;
 			state.user = action.payload;
 		});
 		builder.addCase(
 			removeMovieFromUserWatchListAsync.fulfilled,
 			(state, action) => {
-				// console.error(action.payload);
-
-				// state.user.watchList = action.payload.watchList;
 				state.user = action.payload;
 			}
 		);

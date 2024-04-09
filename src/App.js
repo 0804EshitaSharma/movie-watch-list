@@ -1,16 +1,10 @@
-import Home from "./components/home/Home";
-import React, { useEffect, useState } from "react";
+import React from "react";
 import SideBar from "./components/sidebar/SideBar";
-import Header from "./components/header/Header";
 import "bootstrap/dist/css/bootstrap.min.css";
-import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import User from "./components/user/User";
-import { useSelector, useDispatch } from "react-redux";
-import { currentUser } from "./redux/store/user/userSlice";
-import Display from "./components/display/Display";
-import MovieWatchlist from "./components/MovieWatchlist";
+import { useSelector } from "react-redux";
 import { Outlet } from "react-router-dom";
 
 function App() {
