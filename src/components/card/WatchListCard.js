@@ -3,6 +3,8 @@ import Card from "react-bootstrap/Card";
 import { useDispatch, useSelector } from "react-redux";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTimesCircle } from "@fortawesome/free-solid-svg-icons";
+import OverlayTrigger from "react-bootstrap/OverlayTrigger";
+import Popover from "react-bootstrap/Popover";
 import { removeMovieFromUserWatchListAsync } from "../../redux/store/user/userSlice";
 function WatchListCard({ movie }) {
 	const currentUser = useSelector((state) => state.user.user);
@@ -36,7 +38,27 @@ function WatchListCard({ movie }) {
 					src={movie.Poster}
 				/>
 				<Card.Body>
-					<Card.Title>{movie.Title.length >20? movie.Title.slice(0,20)+"....":movie.Title}</Card.Title>
+					<OverlayTrigger
+						overlay={
+							<Popover
+								style={{
+									backgroundColor: "lightyellow",
+									padding: "4px",
+									color: "black",
+									fontWeight: "700",
+								}}
+							>
+								{movie.Title}
+							</Popover>
+						}
+					>
+						<Card.Title>
+							{movie.Title.length > 20
+								? movie.Title.substring(0, 20) + "...."
+								: movie.Title}
+						</Card.Title>
+					</OverlayTrigger>
+
 					<Card.Subtitle className="mb-2 text-muted">
 						{movie.Year}
 					</Card.Subtitle>

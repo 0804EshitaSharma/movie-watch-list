@@ -8,6 +8,8 @@ import {
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCheckCircle as solidCheckCircle } from "@fortawesome/free-solid-svg-icons";
 import { faCheckCircle as farCheckCircle } from "@fortawesome/free-regular-svg-icons";
+import OverlayTrigger from "react-bootstrap/OverlayTrigger";
+import Popover from "react-bootstrap/Popover";
 function MovieCard({ movie }) {
 	const currentUser = useSelector((state) => state.user.user);
 	const [add, setAdd] = useState(false);
@@ -50,11 +52,26 @@ function MovieCard({ movie }) {
 					src={movie.Poster}
 				/>
 				<Card.Body>
-					<Card.Title>
-						{movie.Title.length > 20
-							? movie.Title.substring(0, 20) + "...."
-							: movie.Title}
-					</Card.Title>
+					<OverlayTrigger
+						overlay={
+							<Popover
+								style={{
+									backgroundColor: "lightyellow",
+									padding: "4px",
+									color: "black",
+									fontWeight: "700",
+								}}
+							>
+								{movie.Title}
+							</Popover>
+						}
+					>
+						<Card.Title>
+							{movie.Title.length > 20
+								? movie.Title.substring(0, 20) + "...."
+								: movie.Title}
+						</Card.Title>
+					</OverlayTrigger>
 					<Card.Subtitle className="mb-2 text-muted">
 						{movie.Year}
 					</Card.Subtitle>

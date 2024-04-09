@@ -10,7 +10,8 @@ import {
 	CDBSidebarMenu,
 	CDBSidebarMenuItem,
 } from "cdbreact";
-
+import OverlayTrigger from "react-bootstrap/OverlayTrigger";
+import Popover from "react-bootstrap/Popover";
 function SideBar({ user }) {
 	const dispatch = useDispatch();
 
@@ -45,7 +46,24 @@ function SideBar({ user }) {
 					</CDBSidebarContent>
 
 					<CDBSidebarFooter style={{ textAlign: "center" }}>
-						<CDBSidebarMenuItem icon="fa-light fa-play">{user.email}</CDBSidebarMenuItem>
+						<OverlayTrigger
+							overlay={
+								<Popover
+									style={{
+										backgroundColor: "lightyellow",
+										padding: "4px",
+										color: "black",
+										fontWeight: "700",
+									}}
+								>
+									{user.email}
+								</Popover>
+							}
+						>
+							<CDBSidebarMenuItem icon="fa-light fa-play">
+								{user.email}
+							</CDBSidebarMenuItem>
+						</OverlayTrigger>
 					</CDBSidebarFooter>
 				</CDBSidebar>
 			</div>
