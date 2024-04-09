@@ -1,6 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
-const baseURL = "http://www.omdbapi.com/";
+const baseURL = "https://www.omdbapi.com/";
 
 export const getMoviesAsync = createAsyncThunk(
 	"movies/getMoviesAsync ",
