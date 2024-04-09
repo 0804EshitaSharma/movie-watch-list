@@ -1,13 +1,11 @@
 import React, { useEffect, useState } from "react";
 import Search from "../search/Search";
-import { useSelector, useDispatch } from "react-redux";
+import {useDispatch } from "react-redux";
 import {
-	selectAllMovies,
 	getMoviesAsync,
 	searchMoviesAsync,
 } from "../../redux/store/movieSlice";
 function Header() {
-	const movies = useSelector(selectAllMovies);
 	const dispatch = useDispatch();
 	const [query, setQuery] = useState("");
 	useEffect(() => {
