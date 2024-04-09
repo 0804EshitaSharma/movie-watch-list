@@ -11,7 +11,7 @@ export const getMoviesAsync = createAsyncThunk(
 
 		if (response.ok) {
 			const movies = await response.json();
-			return movies.Search;
+			return movies;
 		}
 	}
 );
@@ -22,7 +22,7 @@ export const searchMoviesAsync = createAsyncThunk(
 		const response = await fetch(`${baseURL}?s=${query}&apikey=49105b82`);
 		if (response.ok) {
 			const movies = await response.json();
-			return movies.Search;
+			return movies;
 		}
 	}
 );
@@ -37,7 +37,7 @@ export const movieSlice = createSlice({
 	name: "movie",
 	initialState: {
 		movies: [],
-		filteredMovies: [],
+		error: undefined,
 	},
 	reducers: {
 		viewMovies: (state, action) => {
@@ -46,10 +46,12 @@ export const movieSlice = createSlice({
 	},
 	extraReducers: (builder) => {
 		builder.addCase(getMoviesAsync.fulfilled, (state, action) => {
-			state.movies = action.payload;
+			state.movies = action.payload.Search;
+			state.error = action.payload.Error || "";
 		});
 		builder.addCase(searchMoviesAsync.fulfilled, (state, action) => {
-			state.movies = action.payload;
+			state.movies = action.payload.Search;
+			state.error = action.payload.Error || "";
 		});
 		builder.addCase(shoWatchListAsync.fulfilled, (state, action) => {
 			state.movies = action.payload;
