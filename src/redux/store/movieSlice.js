@@ -40,9 +40,7 @@ export const movieSlice = createSlice({
 		error: undefined,
 	},
 	reducers: {
-		viewMovies: (state, action) => {
-			state.movies = action.payload;
-		},
+		
 	},
 	extraReducers: (builder) => {
 		builder.addCase(getMoviesAsync.fulfilled, (state, action) => {
@@ -58,7 +56,6 @@ export const movieSlice = createSlice({
 		});
 	},
 });
-export const { viewMovies, filterMovies } = movieSlice.actions;
 
 export const selectAllMovies = (state) => state.movies.movies;
 
