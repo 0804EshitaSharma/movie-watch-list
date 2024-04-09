@@ -12,7 +12,7 @@ import {
 	RouterProvider,
 	Route,
 } from "react-router-dom";
-import MovieWatchlist from "./components/MovieWatchlist";
+import MovieWatchlist from "./components/card/MovieWatchlist";
 import Home from "./components/home/Home";
 import User from "./components/user/User";
 const root = ReactDOM.createRoot(document.getElementById("root"));

@@ -2,7 +2,7 @@ import React from 'react'
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import WatchListCard from './card/WatchListCard';
+import WatchListCard from './WatchListCard';
 import { useDispatch, useSelector } from "react-redux";
 import Alert from "react-bootstrap/Alert";
 function MovieWatchlist() {
